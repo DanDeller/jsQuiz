@@ -37,8 +37,8 @@
 
 	// set default options
 	var q = 0,
-	numberRight = 0,
-	qLength = allQuestions.length;
+	    numberRight = 0,
+       	    qLength = allQuestions.length;
  
 	// create container for quiz
 	var div = document.createElement('div');
