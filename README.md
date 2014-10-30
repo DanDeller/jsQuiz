@@ -1,4 +1,6 @@
 jsQuiz
 ======
 
-A simple quiz done with JavaScript
+A simple quiz done with JavaScript.
+
+Done for pure practice.
