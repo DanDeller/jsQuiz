@@ -3,9 +3,10 @@
 <head>
 	<title>Test</title>
 	<style type="text/css">
-	ul {list-style-type: none;}
-	.radio {display: block;}
-	.label {display: inline;}
+	ul {list-style-type: none; margin: 0 0 20px -40px}
+	ul li {margin: 0 0 5px 0;}
+	input[type=radio] {margin: 0 10px 0 0;}
+	.label {display: inline}
 	</style>
 </head>
 <body>
@@ -91,6 +92,7 @@
 		// check to make sure an option is selected before moving on
 		if (!checked) {
 			alert('check something first');
+			// console.log(checked);
 			return undefined;
 		} 
 
