@@ -114,7 +114,7 @@
 			div.removeChild(next);
 			question.innerHTML = 'That\'s it! You got ' + numberRight + ' out of 4 right.';
 		}
-	} // end onclick functionh
+	} // end onclick function
 
 	// load function on page load
 	window.onload = function() {
