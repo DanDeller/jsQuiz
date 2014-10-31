@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<title>Test</title>
 	<style type="text/css">
-	ul {list-style-type: none; margin: 0 0 20px -40px}
-	ul li {margin: 0 0 5px 0;}
-	input[type=radio] {margin: 0 10px 0 0;}
+	body {font-family: open sans}
+	ul {margin: 0 0 20px -40px; list-style-type: none}
+	ul li {margin: 0 0 10px 0}
+	input[type=radio] {margin: 0 10px 0 0}
+	.radio {display: block}
 	.label {display: inline}
 	</style>
 </head>
@@ -17,22 +20,22 @@
 	{
 		question: "Who is Prime Minister of the United Kingdom?", 
 		choices: ["David Cameron", "Gordon Brown", "Winston Churchill", "Tony Blair"], 
-		correctAnswer: 3
+		correctAnswer: 'Tony Blair'
 	},
 	{
 		question: "Who is your father?", 
-		choices: ["Darth Vader", "Murray", "Alf", "test tube"], 
-		correctAnswer: 0
+		choices: ["Darth Vader", "Murray", "Test Tube", "Bob Saget"], 
+		correctAnswer: 'Darth Vader'
 	},
 	{
 		question: "What is the third law of thermodynamics?", 
-		choices: ["lol what","stop", "C", "nope" ], 
-		correctAnswer: 1
+		choices: ["lol what?","Pass", "The branch of physical science that deals with the relations between heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.", "nope" ], 
+		correctAnswer: 'The branch of physical science that deals with the relations between heat and other forms of energy (such as mechanical, electrical, or chemical energy), and, by extension, of the relationships between all forms of energy.'
 	},
 	{
-		question: "What is this?", 
-		choices: ["Stuff", "Junk", "Trash", "I'm over writing answers"], 
-		correctAnswer: 2
+		question: "What are you waiting for?!?!?!?", 
+		choices: ["A1", "A2", "A3", "A4"], 
+		correctAnswer: 'A2'
 	}
 	];
 
@@ -40,7 +43,7 @@
 	var q = 0,
 	    numberRight = 0,
             qLength = allQuestions.length;
- 
+
 	// create container for quiz
 	var div = document.createElement('div');
 			div.className = 'quiz-div';
@@ -58,6 +61,8 @@
 	var next = document.getElementById('next');
 			next.value = 'Question ' + q;
 			div.appendChild(next);
+
+	var add = document.getElementById('add');
 
 	// function to set questions and answers
 	function setQuestion(q) {
@@ -82,9 +87,14 @@
 		for (var x = 0; x < radioGroup.length; x++) {
 			if (radioGroup[x].checked) {
 				checked = true;
-				if (x === allQuestions[q].correctAnswer) {
+				console.log(radioGroup[x].value);
+				if (radioGroup[x].value === allQuestions[q].correctAnswer) {
 					numberRight++;
 					console.log(numberRight);
+				} else {
+					var right = document.createElement('p');
+							div.appendChild(right);
+							right.innerHTML = 'For question ' + q + ', You choose ' + allQuestions[q].choices[x] + '. The correct answer was ' + allQuestions[q].correctAnswer + '.';
 				} // end if values match correct answers
 			} // end if checked function
 		} // end for loop
@@ -92,7 +102,6 @@
 		// check to make sure an option is selected before moving on
 		if (!checked) {
 			alert('check something first');
-			// console.log(checked);
 			return undefined;
 		} 
 
